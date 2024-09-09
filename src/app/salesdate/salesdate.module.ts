@@ -9,6 +9,7 @@ import { NewPageComponent } from './pages/new-page/new-page.component';
 import { SearchPageComponent } from './pages/search-page/search-page.component';
 import { MaterialModule } from '../material/material.module';
 import { NgxUiLoaderModule } from 'ngx-ui-loader';
+import { OrderDetailsDialogComponent } from './pages/order-details-dialog/order-details-dialog.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { NgxUiLoaderModule } from 'ngx-ui-loader';
     LayoutPageComponent,
     ListPageComponent,
     NewPageComponent,
-    SearchPageComponent
+    SearchPageComponent,
+    OrderDetailsDialogComponent
   ],
   imports: [
     CommonModule,

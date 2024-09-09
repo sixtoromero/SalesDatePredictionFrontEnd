@@ -7,6 +7,8 @@ import { CustomerService } from '../../../services/Customers.service';
 import { ResponseModel } from '../../../models/response.model';
 import { SalesDatePredictionModel } from '../../../models/response/salesdateprediction.model';
 import { finalize } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
+import { OrderDetailsDialogComponent } from '../order-details-dialog/order-details-dialog.component';
 
 export interface Customer {
   customerName: string;
@@ -45,7 +47,10 @@ export class ListPageComponent implements AfterViewInit, OnInit  {
 
   
 
-  constructor(private ngxService: NgxUiLoaderService, private customerService: CustomerService){}
+  constructor(
+    private ngxService: NgxUiLoaderService, 
+    private customerService: CustomerService,
+    public dialog: MatDialog){}
 
   ngOnInit(){
     this.getSalesDatePrediction();
@@ -86,4 +91,19 @@ export class ListPageComponent implements AfterViewInit, OnInit  {
       });
   };  
   
+  // Método para abrir el modal
+  openOrderDetailsDialog(customer: SalesDatePredictionModel): void {
+    
+    console.log(customer);
+
+    const dialogRef = this.dialog.open(OrderDetailsDialogComponent, {
+      width: '400px', // Puedes ajustar el tamaño del modal
+      data: customer // Pasa los datos del cliente seleccionado al modal
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('El diálogo fue cerrado');
+    });
+  }
+
 }
