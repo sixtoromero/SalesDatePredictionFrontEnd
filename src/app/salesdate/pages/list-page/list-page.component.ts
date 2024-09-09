@@ -98,7 +98,7 @@ export class ListPageComponent implements AfterViewInit, OnInit  {
 
     const dialogRef = this.dialog.open(OrderDetailsDialogComponent, {
       width: '90vw',  // 90% del ancho de la ventana
-      maxWidth: '100vw',  // Ancho máximo para el modal
+      maxWidth: '100vw',  // Ancho máximo para el modal      
       data: customer // Pasa los datos del cliente seleccionado al modal
     });
 
