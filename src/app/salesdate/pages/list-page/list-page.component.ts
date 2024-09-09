@@ -89,7 +89,7 @@ export class ListPageComponent implements AfterViewInit, OnInit  {
           // Aquí puedes manejar el error, mostrar un mensaje o cualquier otra acción que desees.
         }
       });
-  };  
+  };
   
   // Método para abrir el modal
   openOrderDetailsDialog(customer: SalesDatePredictionModel): void {
@@ -97,7 +97,8 @@ export class ListPageComponent implements AfterViewInit, OnInit  {
     console.log(customer);
 
     const dialogRef = this.dialog.open(OrderDetailsDialogComponent, {
-      width: '400px', // Puedes ajustar el tamaño del modal
+      width: '90vw',  // 90% del ancho de la ventana
+      maxWidth: '100vw',  // Ancho máximo para el modal
       data: customer // Pasa los datos del cliente seleccionado al modal
     });
 

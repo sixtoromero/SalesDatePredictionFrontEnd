@@ -1,8 +1,52 @@
-<h2 mat-dialog-title>Order Details</h2>
+<h2 mat-dialog-title class="header">Customer {{ data.CustomerName }} - Orders</h2>
 <mat-dialog-content>
-  <!-- Aquí puedes agregar el contenido que desees mostrar en el modal -->
-  <p>Detalles de la orden para el cliente seleccionado.</p>
+  <table mat-table [dataSource]="orders" class="mat-elevation-z8">
+
+    <!-- Order ID Column -->
+    <ng-container matColumnDef="orderId">
+      <th mat-header-cell *matHeaderCellDef> Order ID </th>
+      <td mat-cell *matCellDef="let order"> {{order.orderId}} </td>
+    </ng-container>
+
+    <!-- Required Date Column -->
+    <ng-container matColumnDef="requiredDate">
+      <th mat-header-cell *matHeaderCellDef> Required Date </th>
+      <td mat-cell *matCellDef="let order"> {{order.requiredDate | date:'short'}} </td>
+    </ng-container>
+
+    <!-- Shipped Date Column -->
+    <ng-container matColumnDef="shippedDate">
+      <th mat-header-cell *matHeaderCellDef> Shipped Date </th>
+      <td mat-cell *matCellDef="let order"> {{order.shippedDate | date:'short'}} </td>
+    </ng-container>
+
+    <!-- Ship Name Column -->
+    <ng-container matColumnDef="shipName">
+      <th mat-header-cell *matHeaderCellDef> Ship Name </th>
+      <td mat-cell *matCellDef="let order"> {{order.shipName}} </td>
+    </ng-container>
+
+    <!-- Ship Address Column -->
+    <ng-container matColumnDef="shipAddress">
+      <th mat-header-cell *matHeaderCellDef> Ship Address </th>
+      <td mat-cell *matCellDef="let order"> {{order.shipAddress}} </td>
+    </ng-container>
+
+    <!-- Ship City Column -->
+    <ng-container matColumnDef="shipCity">
+      <th mat-header-cell *matHeaderCellDef> Ship City </th>
+      <td mat-cell *matCellDef="let order"> {{order.shipCity}} </td>
+    </ng-container>
+
+    <!-- Header and Row Definitions -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <!-- Paginator -->
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
 </mat-dialog-content>
-<mat-dialog-actions>
-  <button mat-button mat-dialog-close>Close</button>
+
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close color="warn">CLOSE</button>
 </mat-dialog-actions>
