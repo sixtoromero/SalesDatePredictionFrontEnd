@@ -1,4 +1,6 @@
-export interface SalesDatePredictionModel {
+import { OrderDetailsModel } from "./orderDetails.model";
+
+export interface OrdersModel {
     orderid?: number | null;
     custid?: number | null;
     empid?: number | null;
@@ -13,4 +15,6 @@ export interface SalesDatePredictionModel {
     shipregion?: string | null;
     shippostalcode?: string | null;
     shipcountry?: string | null;
+
+    orderDetails?: OrderDetailsModel[] | null;
 }
