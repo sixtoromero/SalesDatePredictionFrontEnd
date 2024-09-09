@@ -93,9 +93,7 @@ export class ListPageComponent implements AfterViewInit, OnInit  {
   
   // Método para abrir el modal
   openOrderDetailsDialog(customer: SalesDatePredictionModel): void {
-    
-    console.log(customer);
-
+        
     const dialogRef = this.dialog.open(OrderDetailsDialogComponent, {
       width: '90vw',  // 90% del ancho de la ventana
       maxWidth: '100vw',  // Ancho máximo para el modal      
@@ -106,5 +104,4 @@ export class ListPageComponent implements AfterViewInit, OnInit  {
       console.log('El diálogo fue cerrado');
     });
   }
-
 }
