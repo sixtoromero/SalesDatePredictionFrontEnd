@@ -10,11 +10,11 @@ import { SalesDatePredictionModel } from '../../../models/response/salesdatepred
 import { finalize } from 'rxjs';
 
 @Component({
-  selector: 'app-order-details-dialog',
-  templateUrl: './order-details-dialog.component.html',
-  styleUrls: ['./order-details-dialog.component.css']
+  selector: 'app-orders-dialog',
+  templateUrl: './orders-dialog.component.html',
+  styleUrls: ['./orders-dialog.component.css']
 })
-export class OrderDetailsDialogComponent implements OnInit, AfterViewInit {
+export class OrdersDialogComponent implements OnInit, AfterViewInit {
   orders = new MatTableDataSource<OrdersModel>();
   displayedColumns: string[] = ['orderid', 'requireddate', 'shippeddate', 'shipname', 'shipaddress', 'shipcity'];  
 

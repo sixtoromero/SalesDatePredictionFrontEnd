@@ -8,7 +8,7 @@ import { ResponseModel } from '../../../models/response.model';
 import { SalesDatePredictionModel } from '../../../models/response/salesdateprediction.model';
 import { finalize } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
-import { OrderDetailsDialogComponent } from '../order-details-dialog/order-details-dialog.component';
+import { OrdersDialogComponent } from '../orders-dialog/orders-dialog.component';
 
 export interface Customer {
   customerName: string;
@@ -94,7 +94,7 @@ export class ListPageComponent implements AfterViewInit, OnInit  {
   // Método para abrir el modal
   openOrderDetailsDialog(customer: SalesDatePredictionModel): void {
         
-    const dialogRef = this.dialog.open(OrderDetailsDialogComponent, {
+    const dialogRef = this.dialog.open(OrdersDialogComponent, {
       width: '90vw',  // 90% del ancho de la ventana
       maxWidth: '100vw',  // Ancho máximo para el modal      
       data: customer // Pasa los datos del cliente seleccionado al modal
