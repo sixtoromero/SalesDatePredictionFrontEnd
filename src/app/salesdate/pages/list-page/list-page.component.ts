@@ -9,6 +9,7 @@ import { SalesDatePredictionModel } from '../../../models/response/salesdatepred
 import { finalize } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { OrdersDialogComponent } from '../orders-dialog/orders-dialog.component';
+import { OrderNewDialogComponent } from '../order-new-dialog/order-new-dialog.component';
 
 export interface Customer {
   customerName: string;
@@ -92,7 +93,7 @@ export class ListPageComponent implements AfterViewInit, OnInit  {
   };
   
   // Método para abrir el modal
-  openOrderDetailsDialog(customer: SalesDatePredictionModel): void {
+  openOrdersDialog(customer: SalesDatePredictionModel): void {
         
     const dialogRef = this.dialog.open(OrdersDialogComponent, {
       width: '90vw',  // 90% del ancho de la ventana
@@ -102,6 +103,21 @@ export class ListPageComponent implements AfterViewInit, OnInit  {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('El diálogo fue cerrado');
+    });
+  }
+
+  openAddOrderDialog(customer: SalesDatePredictionModel): void {
+    const dialogRef = this.dialog.open(OrderNewDialogComponent, {
+      width: '70vw',  // 90% del ancho de la ventana
+      maxWidth: '100vw',  // Ancho máximo para el modal     
+      data: customer
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        // Handle the result if needed
+        console.log('Order data:', result);
+      }
     });
   }
 }

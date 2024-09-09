@@ -10,6 +10,8 @@ import { SearchPageComponent } from './pages/search-page/search-page.component';
 import { MaterialModule } from '../material/material.module';
 import { NgxUiLoaderModule } from 'ngx-ui-loader';
 import { OrdersDialogComponent } from './pages/orders-dialog/orders-dialog.component';
+import { OrderNewDialogComponent } from './pages/order-new-dialog/order-new-dialog.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -19,13 +21,15 @@ import { OrdersDialogComponent } from './pages/orders-dialog/orders-dialog.compo
     ListPageComponent,
     NewPageComponent,
     SearchPageComponent,
-    OrdersDialogComponent
+    OrdersDialogComponent,
+    OrderNewDialogComponent
   ],
   imports: [
     CommonModule,
     SalesdateRoutingModule,
     MaterialModule,
-    NgxUiLoaderModule
+    NgxUiLoaderModule,
+    ReactiveFormsModule
   ]
 })
 export class SalesdateModule { }
